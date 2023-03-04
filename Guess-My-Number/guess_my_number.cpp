@@ -16,7 +16,7 @@ int main() {
       cout << "Too high!\n\n";
     } else if (guess < secretNumber) {
       cout << "Too low!\n\n";
-    } else cout << "That's it! You got it in " << tries << " tries!";
+    } else cout << "That's it! You got it in " << tries << " tries!\n";
   } while (guess != secretNumber);
     return 0;
 }
