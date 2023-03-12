@@ -42,7 +42,10 @@ int main() {
   }
   else if (chosenGameType == 2) {
     char isCorrectAnswer;
+    int rangeMax = maxNumber;
+    int rangeMin = 0;
     int currentAIGuess = maxNumber / 2;
+    cout << "You need to think of a number and answer to AI if it is low or high.\n\n";
     cout << "Is this your number: " << currentAIGuess << "?";
     cout << " Write 'y' if it is :).\n"
       << "if it's too high, write 'h', "
@@ -51,18 +54,21 @@ int main() {
     cin >> isCorrectAnswer;
     do {
       if (isCorrectAnswer == 'h') {
-        currentAIGuess = currentAIGuess - currentAIGuess / 2;
-        cout << "Is this your number?" << currentAIGuess;
-        cout << "\nType here: ";
+        rangeMax = currentAIGuess;
+        currentAIGuess = rangeMax - (rangeMax - rangeMin) / 2;
+        cout << "is this your number: " << currentAIGuess << "?\n"
+        << "Type here: ";
         cin >> isCorrectAnswer;
       }
       else if (isCorrectAnswer == 'l') {
-        currentAIGuess = currentAIGuess + currentAIGuess / 2;
-        cout << "Is this your number?" << currentAIGuess;
-        cout << "\nType here: ";
+        rangeMin = currentAIGuess;
+        currentAIGuess = rangeMax - (rangeMax - rangeMin) / 2;
+        cout << "is this your number: " << currentAIGuess << "?\n"
+             << "Type here: ";
         cin >> isCorrectAnswer;
       }
     } while (isCorrectAnswer != 'y');
+    cout << "Congratulations! The game is over!";
   }
   return 0;
 };
