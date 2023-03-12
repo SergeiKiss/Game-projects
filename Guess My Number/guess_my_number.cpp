@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-  char isCorrectAnswer;
   int maxNumber;
   int tries = 0;
   int chosenGameType;
@@ -40,16 +39,30 @@ int main() {
           cout << "That's it! You got it in " << tries << " tries!\n";
         }
     } while (guessNumber != secretNumber);
-  } 
-  // else if (chosenGameType == 2) {
-  //   int firstTry = maxNumber / 2;
-  //   cout << "Is this your number?" << firstTry;
-  //   cout << "Write 'yes' if it is :).\n"
-  //   << "if it's too high write 'too high'\n"
-  //   << "else write 'too low'.";
-  //   cin >> isCorrectAnswer;
-  //   do {
-  //   } while (isCorrectAnswer != "y");
-  // }
+  }
+  else if (chosenGameType == 2) {
+    string isCorrectAnswer;
+    int currentAIGuess = maxNumber / 2;
+    cout << "Is this your number: " << currentAIGuess << "?";
+    cout << " Write 'yes' if it is :).\n"
+      << "if it's too high, write 'too high', "
+      << "else write 'too low'.\n";
+    cout << "Type here: ";
+    cin >> isCorrectAnswer;
+    do {
+      if (isCorrectAnswer == "too high") {
+        currentAIGuess = currentAIGuess - currentAIGuess / 2;
+        cout << "Is this your number?" << currentAIGuess;
+        cout << "\nType here: ";
+        cin >> isCorrectAnswer;
+      }
+      else if (isCorrectAnswer == "too low") {
+        currentAIGuess = currentAIGuess + currentAIGuess / 2;
+        cout << "Is this your number?" << currentAIGuess;
+        cout << "\nType here: ";
+        cin >> isCorrectAnswer;
+      }
+    } while (isCorrectAnswer != "yes");
+  }
   return 0;
 };
