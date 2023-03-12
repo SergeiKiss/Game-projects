@@ -19,6 +19,7 @@ int main() {
   string theWord = WORDS[choice][WORD];
   string theHint = WORDS[choice][HINT];
   string jumble = theWord;
+  int score = theWord.length();
 
   int length = jumble.size();
   for (int i = 0; i < length; ++i) {
@@ -43,6 +44,7 @@ int main() {
   while ((guess != theWord) && (guess != "quit")) {
     if (guess == "hint") {
         cout << theHint;
+        score /= 2;
     } else {
         cout << "Sorry, that's not it.";
     }
@@ -52,6 +54,7 @@ int main() {
 
   if(guess == theWord) {
     cout << "\nThat's it! You guessed it!\n";
+    cout << "Your score is " << score << " out of " << theWord.length() << ".";
   }
   cout << "\nThanks for playing.\n";
   return 0;
