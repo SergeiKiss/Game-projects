@@ -41,28 +41,28 @@ int main() {
     } while (guessNumber != secretNumber);
   }
   else if (chosenGameType == 2) {
-    string isCorrectAnswer;
+    char isCorrectAnswer;
     int currentAIGuess = maxNumber / 2;
     cout << "Is this your number: " << currentAIGuess << "?";
-    cout << " Write 'yes' if it is :).\n"
-      << "if it's too high, write 'too high', "
-      << "else write 'too low'.\n";
+    cout << " Write 'y' if it is :).\n"
+      << "if it's too high, write 'h', "
+      << "else write 'l'.\n";
     cout << "Type here: ";
     cin >> isCorrectAnswer;
     do {
-      if (isCorrectAnswer == "too high") {
+      if (isCorrectAnswer == 'h') {
         currentAIGuess = currentAIGuess - currentAIGuess / 2;
         cout << "Is this your number?" << currentAIGuess;
         cout << "\nType here: ";
         cin >> isCorrectAnswer;
       }
-      else if (isCorrectAnswer == "too low") {
+      else if (isCorrectAnswer == 'l') {
         currentAIGuess = currentAIGuess + currentAIGuess / 2;
         cout << "Is this your number?" << currentAIGuess;
         cout << "\nType here: ";
         cin >> isCorrectAnswer;
       }
-    } while (isCorrectAnswer != "yes");
+    } while (isCorrectAnswer != 'y');
   }
   return 0;
 };
