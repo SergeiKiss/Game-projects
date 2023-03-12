@@ -50,11 +50,9 @@ int main() {
     cin >> guess;
 }
 
-
   if(guess == theWord) {
     cout << "\nThat's it! You guessed it!\n";
   }
   cout << "\nThanks for playing.\n";
   return 0;
-
 };
