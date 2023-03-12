@@ -7,19 +7,26 @@ int main() {
   char isCorrectAnswer;
   int maxNumber;
   int tries = 0;
-  int guessNumber;
+  int chosenGameType;
+
   cout << "\tWelcome to Guess My Number\n\n";
+  cout << "\nLet set up your game!\n";
   cout << "Choose a game type:\n"
           << "You guess - 1\n"
-          << "AI guess - 2\n: ";
-  int chosenGameType;
+          << "AI guess - 2\n";
+  cout << "Type here: ";
   cin >> chosenGameType;
+
   cout << "Choose a max number: ";
   cin >> maxNumber;
+
   if (chosenGameType == 1) {
     srand(static_cast<unsigned int>(time(0)));
     int secretNumber = rand() % maxNumber + 1;
+    int guessNumber;
     do {
+        cout << "\nThe game starts!\n";
+        cout << "You need to name the hidden number. The amount of attempts is not limited.\n";
         cout << "Enter a guess: ";
         cin >> guessNumber;
         ++tries;
