@@ -38,4 +38,23 @@ int main() {
   string guess;
   cout << "\n\nYour guess: ";
   cin >> guess;
+
+
+  while ((guess != theWord) && (guess != "quit")) {
+    if (guess == "hint") {
+        cout << theHint;
+    } else {
+        cout << "Sorry, that's not it.";
+    }
+    cout <<"\n\nYour guess: ";
+    cin >> guess;
+}
+
+
+  if(guess == theWord) {
+    cout << "\nThat's it! You guessed it!\n";
+  }
+  cout << "\nThanks for playing.\n";
+  return 0;
+
 };
