@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
   const int MAX_WRONG = 8;
-  vector<string>words;
+  vector<string> words;
   words.push_back("GUESS");
   words.push_back("HANGMAN");
   words.push_back("DIFFICULT");
@@ -48,14 +48,13 @@ int main() {
       cout << "Sorry, " << guess << " isn't in the word.\n";
       ++wrong;
     }
-
+  }
     if (wrong == MAX_WRONG) {
-      cout << "\nYou've een hanged!";
+      cout << "\nYou've been hanged!";
     }
     else {
       cout << "\nYou guessed it!";
     }
-    cout << "\nThe word was " << THE_WORD << endl;
-    return 0;
-  }
+  cout << "\nThe word was " << THE_WORD << endl;
+  return 0;
 }
